@@ -1,0 +1,38 @@
+unavailable:
+  label: 'Movies and TV shows not available on Amazon or Netlfix'
+  strings:
+    - Case (Icelandic TV series, sequel to The Court)
+    - The Break (Belgian TV series)
+    - The Disappearance (Disparue - French mini-series)
+    - Friesland (German TV series)
+    - Mord mit Aussicht (German TV series)
+    - Baltic Crimes (German TV series)
+    - In The Dark (UK mini-series with MyAnna Buring)
+    - Helen Dorn (German TV series)
+    - Der Pass (2018 German/Austrian TV series)
+
+amazon:
+  label: 'Movies and TV shows to rent from Amazon'
+  strings:
+    - Scary Or Die (prime)
+    - Desperate Widows (2016 Swedish - prime)
+    - Black Widows (2018 - prime)
+    - Murder In... (original title Muertres a...) (French TV series - MHz)
+    - Antigone 34 (French TV series - MHz)
+    - Georges Simenon Mysteries (French - MHz)
+    - The Court (Icelandic TV series - PBS Masterpiece)
+    - The City And The City (4 part UK mini-series - prime)
+    - The Black Raven (1943 - prime)
+    - The Dark Hour (1936 - prime)
+    - The Riverside Murder (1935 - prime)
+    - Cause For Alarm
+    - Inspector Winter (Swedish or German TV series)
+    - Winter (Australian TV series - Acorn)
+    - Sounder
+    - Mrs. Bradley Mysteries
+    - Blue Murder
+    - Murder, Inc.
+    - Mythical Detective Loki Ragnarok (prime)
+    - Trenchcoat
+    - Candles At Nine
+    - Gallery Of Horrors

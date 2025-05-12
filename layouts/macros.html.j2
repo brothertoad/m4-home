@@ -1,0 +1,87 @@
+{# replacements for some filters #}
+
+{%- macro txf(color) -%}<span style="white-space: nowrap">XF-{{color}}</span>{%- endmacro -%}
+
+{%- macro tx(color) -%}<span style="white-space: nowrap">X-{{color}}</span>{%- endmacro -%}
+
+{%- macro mrcolor(color) -%}Mr.&nbsp;Color&nbsp;<span style="white-space: nowrap">C-{{color}}</span>{%- endmacro -%}
+
+{%- macro rlm(code) -%}RLM&nbsp;{{code}}{%- endmacro -%}
+
+{%- macro nowrap(text) -%}<span style="white-space: nowrap">{{text}}</span>{%- endmacro -%}
+
+{%- macro linkTo(text,url)-%}<a href="{{url}}">{{text}}</a>{%- endmacro -%}
+
+{%- macro linkblock(links) -%}
+  <div class="list-header">{{ links.label | safe }}</div>
+  <div class="list-container">
+    {%- for entry in links.links -%}
+      {%- if entry.label != '' and entry.url != '' -%}
+        <div><a class="embedded-link" href="{{ entry.url }}">{{ entry.label | safe }}</a></div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+{%- endmacro -%}
+
+{% macro leftlinkblock(links) %}
+  <div class="list-header">{{ links.label }}</div>
+  <div class="list-container tl">
+    {% for entry in links.links %}
+      {% if entry.label != '' and entry.url != '' %}
+        <div><a class="embedded-link" href="{{ entry.url }}">{{ entry.label }}</a></div>
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endmacro %}
+
+{% macro barelinkblock(links) %}
+  <div class="list-container">
+    {% for entry in links.links %}
+      {% if entry.label != '' and entry.url != '' %}
+        <div><a class="embedded-link" href="{{ entry.url }}">{{ entry.label }}</a></div>
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endmacro %}
+
+{% macro stringblock(strings) %}
+  <div class="list-header">{{ strings.label }}</div>
+  <div class="list-container">
+    {% for s in strings.strings %}
+      {% if s != '' %}
+        <span class="centered-block">{{ s | safe }}</span>
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endmacro %}
+
+{% macro leftstringblock(strings) %}
+  <h3 class="header3">{{ strings.label | safe }}</h3>
+  <ul class="list-container">
+    {% for s in strings.strings -%}
+      {% if s != '' %}<li>{{ s | safe }}</li>{% endif %}
+    {%- endfor %}
+  </ul>
+{% endmacro %}
+
+{% macro bookseries(strings) %}
+    <div class="book-series-label">{{ strings.label | safe }}</div>
+    <ol class="book-series-items">
+      {% for s in strings.strings %}{% if s != null and s != '' %}<li>{{ s | safe }}</li>{% endif %}
+      {% endfor %}
+    </ol>
+{% endmacro %}
+
+{% macro bulletstringblock(strings) %}
+  <ul class="list-container">
+    {% for s in strings %}
+      {% if s != '' %}
+        <li>{{ s | safe }}</li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+{% endmacro %}
+
+{% macro h3(s) %}
+  <h3 class="header3">{{ s | safe }}</h3>
+{% endmacro %}

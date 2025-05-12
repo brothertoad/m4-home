@@ -1,0 +1,310 @@
+
+$font-stack: "Merriweather Sans", "Droid Serif", Helvetica, Arial, sans-serif;
+
+input[type=date]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    display: none;
+}
+
+@mixin link-color {
+}
+
+body {
+  font-family: $font-stack;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
+  width: 90%;
+  font-size: 1.2em;
+  text-align: left;
+  background: lightblue;
+  @include link-color;
+}
+
+.preformatted {
+  font-family: $font-stack;
+  font-size: 1.2em;
+}
+
+.tip-div {
+  border-style: solid;
+  border-color: black;
+  border-width: thin;
+  padding: 0.5em;
+  margin: 10px;
+}
+
+@media print {
+   .noprint {
+      visibility: hidden;
+      display: none;
+   }
+   body {
+     font-size: 0.8em;
+     background: white;
+     color: black;
+   }
+}
+
+@mixin centered {
+  text-align: center;
+}
+
+@mixin left-align {
+  text-align: left;
+}
+
+@mixin centered-photo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin bold {
+  font-weight: bold;
+}
+
+@mixin strikethrough {
+  text-decoration: line-through;
+}
+
+nav {
+  padding: 10px;
+}
+
+h1 {
+  margin: 0;
+}
+
+.main-content {
+    margin: 20px;
+}
+
+.tc {
+  @include centered;
+}
+
+.tl {
+  @include left-align;
+}
+
+.prewrap {
+  white-space: pre-wrap;
+}
+
+.bold {
+  @include bold;
+}
+
+.deleted {
+  @include strikethrough;
+}
+
+.left-inline {
+  display: inline;
+  margin-left: 0px;
+  margin-right: auto;
+}
+
+.right-inline {
+  display: inline;
+  margin-left: auto;
+  margin-right: 0px;
+}
+
+.centered-div {
+  display: table;
+  margin: 0 auto;
+}
+
+.w-60 {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.w-80 {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.plain-list {
+  list-style-type: none;
+  padding: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.book-series {
+  text-align: left;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.book-series-label {
+  font-weight: bold;
+  text-align: left;
+  width: fit-content;
+  margin-left: 10px;
+}
+
+.book-series-items {
+  text-align: left;
+  width: fit-content;
+  margin-left: 20px;
+}
+
+@mixin beck-common {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding-top: 0.4em;
+  padding-bottom: 0.4em;
+}
+
+@mixin beck-td-common {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.beck-table {
+  @include beck-common;
+}
+
+.beck-row {
+}
+
+.beck-reason {
+  @include beck-common;
+  @include beck-td-common;
+}
+
+.beck-importance {
+  @include beck-common;
+  @include beck-td-common;
+}
+
+// Generic classes
+
+.row-parent {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+.column-25c {
+  @include centered;
+  flex: 0 0 25%;
+}
+
+.column-50c {
+  @include centered;
+  flex: 0 0 50%;
+}
+
+.column-25 {
+  flex: 0 0 25%;
+}
+
+.column-50 {
+  flex: 0 0 50%;
+}
+
+.column-30 {
+  flex: 0 0 30%;
+}
+
+.column-70 {
+  flex: 0 0 70%;
+}
+
+.column {
+  @include centered;
+  flex: 1 1 0;
+}
+
+.row-parent-space-between {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.list-header {
+  @include centered;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.list-container {
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+}
+
+.centered-block {
+  display: block;
+  @include centered;
+}
+
+.space-at-bottom {
+  margin-bottom: 1em;
+  font-size: 1.2em;
+}
+
+.link {
+  display: block;
+  // text-decoration: none;
+  transition: color .15s ease-in;
+  @include centered;
+  /* font-weight: 600; */
+  @include link-color;
+}
+
+.link2 {
+  /* display: block; */
+  text-decoration: none;
+  transition: color .15s ease-in;
+  @include centered;
+  /* font-weight: 600; */
+}
+
+.embedded-link {
+  // text-decoration: none;
+  transition: color .15s ease-in;
+  @include link-color;
+}
+
+.link:hover, .embedded-link:hover {
+    text-decoration: underline;
+}
+
+.link:focus, .embedded-link:focus {
+    text-decoration: underline;
+}
+.link:link, .link:visited, .embedded-link:link, .embedded-link:visited {
+    transition: color .15s ease-in;
+}
+
+.link:active, .embedded-link:active {
+    transition: color .15s ease-in;
+}
+
+/////////////////////////////////////////////
+// Some color classes for testing.
+/////////////////////////////////////////////
+
+.orange {
+  background: orange;
+}
+
+.green {
+  background: green;
+}
+
+.firebrick {
+  background: firebrick;
+}

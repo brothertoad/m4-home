@@ -1,0 +1,183 @@
+---
+title: Linux tips
+---
+{% extends "layouts/body.html.j2" %}
+{% block content %}
+{% import "layouts/macros.html.j2" as m %}
+<div>
+  {{ m.h3('Useful Linux commands and tips:') }}
+  <div class="tip-div">
+    To set up resolvconf, the name server information handler (that's what the Synaptic package manager calls it):
+    <pre class="xpreformatted">
+      # need to sudo the following steps
+      # install resolvconf, using Synaptic or apt-get
+      rm /etc/resolv.conf # on my system, was a link to ../run/resolvconf/resolv.conf
+      ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf
+      resolvconf -u
+      # may need to restart networking
+    </pre>
+    Note that with Linux Mint 21, the systemd-resolve command has been renamed to resolvectl.
+  </div>
+  <div class="tip-div">
+    To restart Cinnamon without logging out (don't know if this works with MATE):
+    <pre class="xpreformatted">
+      Atl-F2 (brings up dialog)
+      r&lt;return&gt;
+    </pre>
+  </div>
+  <div class="tip-div">
+    To list the hardware that is installed:
+    <pre class="xpreformatted">
+      sudo inxi -F
+    </pre>
+  </div>
+  <div class="tip-div">
+    To see what version of Linux Mint is installed:
+    <pre class="xpreformatted">
+      cat /etc/os-release
+    </pre>
+  </div>
+  <div class="tip-div">
+    To reload the /etc/exports file:
+    <pre class="xpreformatted">
+      sudo exportfs -ra
+    </pre>
+    To see what is currently being NFS exported:
+    <pre class="xpreformatted">
+      sudo exportfs -s
+    </pre>
+  </div>
+  <div class="tip-div">
+    To convert avi files with vorbis video:
+    <pre class="xpreformatted">
+      ffmpeg -i file.avi -vcodec h264 -an file.h264
+      ffmpeg -i file.avi -acodec libfaac file.aac
+      mp4box -add file.h264 -add file.aac file.mp4
+    </pre>
+  </div>
+  <div class="tip-div">
+    To get a vob file from a DVD (dvd://1 means title 1):
+    <pre class="xpreformatted">
+      mplayer dvd://1 -dvd-device /path/to/dvd/folder -v -dumpstream -dumpfile movie.vob
+    </pre>
+  </div>
+  <div class="tip-div">
+    To restore a postgres cluster from a pg_dumpall --clean command:
+    <pre class="xpreformatted">
+      psql --user postgres -f &#x3c;dumpfile&#x3e; postgres
+    </pre>
+  </div>
+  <div class="tip-div">
+    Cron jobs for me and root:
+    <pre class="xpreformatted">
+      30 01 * * * /home/username/bin/backup.sh (me)
+      00 01 * * * sh /home/username/bin/sys-backup.sh (root - perhaps just run manually)
+    </pre>
+  </div>
+  <div class="tip-div">
+    I found the following technique on
+    <a href="https://stackoverflow.com/questions/7333232/how-to-concatenate-two-mp4-files-using-ffmpeg">this page on stackoverflow.com</a>.
+    To concatenate two (or more) mp4 files that have the same encoding parameters, create
+    a text file that lists them, one per line, like so:
+    <pre class="xpreformatted">
+      file 'video1.mp4'
+      file 'video2.mp4'
+    </pre>
+    then issue the following command:
+    <pre class="xpreformatted">
+      ffmpeg -f concat -safe 0 -i listfile -c copy output.mp4
+    </pre>
+  </div>
+  <div class="tip-div">
+    To add metadata (i.e., chapters) to an mp4 file with ffmpeg, do this (the -map 0 is needed to
+    prevent the subtitles from being removed):
+    <pre>
+      ffmpeg -i input.mp4 -f ffmetadata -i metadata.txt -map_metadata 1 -map 0 -codec copy output.mp4
+    </pre>
+    Note: older versions of ffmpeg may not require the -f ffmetadata option.
+  </div>
+  <div class="tip-div">
+    To show the volume of an audio file:
+    <pre>
+      ffmpeg -hide_banner -i input.mp4 -af volumedetect -f null -
+    </pre>
+  </div>
+  <div class="tip-div">
+    On <a href="https://www.amazon.com">Amazon</a>,
+    Lewis Balentine wrote a review of the PNY Quadro P400 graphics card that includes the following
+    command for doing a hardware encoding of a ts video file ($f is the ts file):
+    <pre>
+      ffmpeg -hwaccel cuvid -i "$f" -vcodec h264_nvenc -profile:v 2 -g 30 -qp 26 -c:a ac3 "${f%.ts}.mp4"
+    </pre>
+    <a href="https://www.tomshardware.com/news/amd-intel-nvidia-video-encoding-performance-quality-tested">This page on Tom's Hardware</a>
+    shows the following command:
+    <pre>
+      ffmpeg -i [source] -c:v [h264/hevc/av1]_nvenc -b:v [bitrate] -y [output]
+    </pre>
+  </div>
+  <div class="tip-div">
+    To have bash insert the contents of a file into the command line, use this syntax:
+    <code>$(&lt;file)</code>.
+  </div>
+  <div class="tip-div">
+    <a href="https://unix.stackexchange.com/questions/258679/why-is-ls-suddenly-wrapping-items-with-spaces-in-single-quotes">This link</a>
+    tells how to make the <code>ls</code> command revert to traditional behavior, and
+    not put quotes around file names with spaces, namely by setting the following
+    environment variable: <code>QUOTING_STYLE=literal</code>
+  </div>
+  <div class="tip-div">
+    To make Linux Mint boot in non-graphical mode, do the following:
+    <pre>
+      sudo systemctl set-default multi-user.target
+    </pre>
+    To revert back, use <code>graphical.target</code> instead of <code>multi-user.target</code>.  To see
+    the current value, do:
+    <pre>
+      sudo systemctl get-default
+    </pre>
+  </div>
+  <div class="tip-div">
+    To prevent Linux Mint from repeatedly adding printers, turn off the cups-browsed service.
+    Note that when I did this and restarted, I no longer had printers, so I had to re-enable and
+    start the service.
+    <pre>
+      sudo systemctl stop cups-browsed
+      sudo systemctl disable cups-browsed
+    </pre>
+  </div>
+  <div class="tip-div">
+    To get individual tracks from a flac file that has an entire album (assuming there is
+    a cue file), do
+    <pre>
+      abcde -d x.flac
+    </pre>
+  </div>
+  <div class="tip-div">
+    To force the displays to sleep, do
+    <pre>
+      sleep 3 && xset dpms force off
+    </pre>
+    The sleep is necessary so lifting the key doesn't wake up the monitor.
+  </div>
+  <div class="tip-div">
+    To use sox to trim an audio file, do
+    <pre>
+      sox inputfile outputfile trim start duration
+    </pre>
+    The start time is either a floating point number representing seconds, or a time of the format
+    hh:mm:ss.sss.  The duration can be specified using the same syntax.  Prefixing the duration
+    with a plus sign means from the beginning, prefixing with a minus sing means from the end, and
+    prefixing with an equals sign means an absolute point in the file.
+  </div>
+  <div class="tip-div">
+    To use sox to normalize an audio file, do
+    <pre>
+      sox inputfile outputfile norm -3
+    </pre>
+    The -3 is to avoid clipping.  To get stats from a file, do
+    <pre>
+      sox inputfile -n stat
+    </pre>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+---
+title: 'Brother Toad: Page Not Found'
+---
+{% extends "layouts/body.html.j2" %}
+{% block content %}
+{% import "layouts/macros.html.j2" as m %}
+<p>
+  Oops!  You've tried to navigate to a page that does not exist.
+  You can go to {{ m.linkTo('the home page', '/') | safe }} to try to find
+  the page you're looking for.
+</p>
+{% endblock %}

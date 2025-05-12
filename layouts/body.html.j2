@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <meta content='IE=edge' http-equiv='X-UA-Compatible'>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width,initial-scale=1' />
+    <meta name="google-site-verification" content="zSReOHxI4c6NsC91Xw81gB0fX0PJjORuDTKWzuJ7_Bw" />
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif%7cMerriweather+Sans:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="/site.css"/>
+    {% set parts = ("https://www.brothertoad.net", canonical) %}
+    <link rel="canonical" href="{{ parts|join }}"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+  </head>
+  <body>
+    <div class="main-content">
+      {% include "layouts/partials/header.html.j2" %}
+      {% block content %}{% endblock %}
+      {% include "layouts/partials/footer.html.j2" %}
+    </div>
+  </body>
+</html>

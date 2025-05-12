@@ -1,0 +1,41 @@
+---
+title: Notes
+---
+{% extends "layouts/body.html.j2" %}
+{% block content %}
+{% import "layouts/macros.html.j2" as m %}
+
+<p>
+  {{ m.linkTo('Center text vertically', 'https://stackoverflow.com/questions/8865458/how-do-i-vertically-center-text-with-css') | safe }}
+  The answers also link to a way to do it using flexbox.
+</p>
+<p>
+  Choices Kitchen and Bath, listed on yelp - also Cutler Construction Services
+</p>
+<p>
+  {{ m.linkTo('This page on ArchLinux', 'https://wiki.archlinux.org/index.php/Audiobook') | safe }}
+  shows how
+  to make m4b files, which is a format for audiobooks.  You can also put a .nomedia
+  file in a directory containing m4b files to prevent a music app from playing them.
+</p>
+<p>
+  {{ m.linkTo('This page', 'https://www.headway.org.uk/about-brain-injury/individuals/brain-injury-and-me/drained-by-fatigue-try-these-8-ways-to-cope-after-brain-injury/') | safe }}
+  has info on fighting fatigue that is due to brain injury.
+</p>
+<p>
+  The Mozilla web docs has
+  {{ m.linkTo('a page describing Javascript fetch', 'https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Fetching_data') | safe }}.
+</p>
+<p>
+  A playground for using flexbox can be found
+  {{ m.linkTo('here', 'https://codepen.io/imohkay/pen/gpard') | safe }}.
+</p>
+<p>
+  {{ m.linkTo('This page', 'https://www.indiehackers.com/forum/what-is-your-go-to-css-framework-for-side-projects-09aeadaac2') | safe }}
+  describes a number of CSS libraries/frameworks.
+</p>
+<p>
+  {{ m.linkTo('Page with fix for mouse lag', 'https://askubuntu.com/questions/763413/how-can-i-get-rid-of-mouse-lag-under-ubuntu') | safe }}
+</p>
+
+{% endblock %}

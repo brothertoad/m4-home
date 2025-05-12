@@ -1,0 +1,46 @@
+---
+title: Book series
+---
+{% extends "layouts/body.html.j2" %}
+{% block content %}
+{% import "layouts/macros.html.j2" as m %}
+<div class="row-parent">
+  <div class="column">
+    <p>
+      &#x2713; means physical copy. &#x2733; means electronic copy or Kindle.
+    </p>
+    <div class="book-series">
+      {{ m.bookseries(bookseries.aird) }}
+      {{ m.bookseries(bookseries.baldacci) }}
+      {{ m.bookseries(bookseries.brandCockrill) }}
+      {{ m.bookseries(bookseries.cannellHaskell) }}
+      {{ m.bookseries(bookseries.cleevesShetland) }}
+      {{ m.bookseries(bookseries.cleevesVera) }}
+      {{ m.bookseries(bookseries.crombie) }}
+      {{ m.bookseries(bookseries.dostoyevsky) }}
+      {{ m.bookseries(bookseries.erskine) }}
+      {{ m.bookseries(bookseries.ferrars) }}
+      {{ m.bookseries(bookseries.fluke) }}
+      {{ m.bookseries(bookseries.gerritsen) }}
+      {{ m.bookseries(bookseries.harrisTeagarden) }}
+      {{ m.bookseries(bookseries.harveyResnick) }}
+      {{ m.bookseries(bookseries.hurwitz) }}
+      {{ m.bookseries(bookseries.indridason) }}
+      {{ m.bookseries(bookseries.kingPeter) }}
+      {{ m.bookseries(bookseries.klavan) }}
+      {{ m.bookseries(bookseries.larsson) }}
+      {{ m.bookseries(bookseries.leese) }}
+      {{ m.bookseries(bookseries.mayhew) }}
+      {{ m.bookseries(bookseries.mcgown) }}
+      {{ m.bookseries(bookseries.neel) }}
+      {{ m.bookseries(bookseries.palmer) }}
+      {{ m.bookseries(bookseries.penny) }}
+      {{ m.bookseries(bookseries.scarlett) }}
+      {{ m.bookseries(bookseries.todd) }}
+      {{ m.bookseries(bookseries.ungerJones) }}
+      {{ m.bookseries(bookseries.wodehouse) }}
+      {{ m.bookseries(bookseries.yorke) }}
+    </div>
+  </div>
+</div>
+{% endblock %}

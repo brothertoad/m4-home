@@ -1,0 +1,26 @@
+boxed109s:
+  label: 'Bf 109 bagged kits in box'
+  strings:
+    - 'J13 Bf 109G-2 (F tool)'
+    - 'Jt48 Bf 109G-14'
+    - '09324 Bf 109G-6 Graf'
+    - '09303 Bf 109G-4 Hartmann (G tool)'
+
+local:
+  label: 'Local pages'
+  links:
+    -
+      label: 'Media'
+      url: '/media/'
+    -
+      label: 'Hobby'
+      url: '/hobby/'
+    -
+      label: 'Tasks'
+      url: '/tasks/'
+    -
+      label: 'Notes'
+      url: '/notes/'
+    -
+      label: 'Legacy tasks'
+      url: '/legacy-tasks/'
