@@ -23,20 +23,35 @@ sites:
       label: 'Google Voice'
       url: 'https://voice.google.com'
     -
-      label: 'Uncle Uncool'
-      url: 'https://www.uncleuncool.net/'
-    -
       label: 'Jupiter'
       url: 'http://192.168.1.60/'
     -
-      label: 'uulists on Firebase'
-      url: 'https://uulists-cd9f5.firebaseapp.com/'
+      label: "Homebrew"
+      url: 'https://brew.sh/'
     -
-      label: 'HTML code table'
-      url: 'https://unicode-table.com/en/'
+      label: "Homebrew packages"
+      url: 'https://formulae.brew.sh/'
     -
-      label: 'Better HTML symbols, entities, etc.'
-      url: 'https://www.toptal.com/designers/htmlarrows/'
+      label: ""
+      url: ''
+    -
+      label: ""
+      url: ''
+    -
+      label: ""
+      url: ''
+    -
+      label: ""
+      url: ''
+    -
+      label: ""
+      url: ''
+    -
+      label: ""
+      url: ''
+    -
+      label: ""
+      url: ''
     -
       label: ""
       url: ''
