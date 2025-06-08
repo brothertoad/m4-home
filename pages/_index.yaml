@@ -5,6 +5,9 @@ sites:
       label: 'DuckDuckGo'
       url: 'https://www.duckduckgo.com/'
     -
+      label: 'Apple'
+      url: 'https://www.apple.com'
+    -
       label: 'Google'
       url: 'https://www.google.com'
     -
